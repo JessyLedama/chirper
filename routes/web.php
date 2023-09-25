@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChirpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,7 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::get('/chirps', [ChirpController::class, 'index'])->middleware(['auth'])->name('chirps');
 
 require __DIR__.'/auth.php';
